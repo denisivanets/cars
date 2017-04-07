@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars app</title>
+    <script src="js/libs/jquery-3.2.0.js"></script>
+    <script src="js/libs/angular.js"></script>
+    <script src="js/libs/bootstrap.js"></script>
+    <script src="js/app.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body ng-app="carApp">
+    <div ng-controller="carCtrl">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p>Cars</p>
+            </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Color</th>
+                        <th>Release year</th>
+                        <th>Conditioner</th>
+                        <th>Country</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="car in cars">
+                            <td>{{car.model}}</td>
+                            <td>{{car.color}}</td>
+                            <td>{{car.createdYear}}</td>
+                            <td>{{car.conditioner}}</td>
+                            <td>{{car.country}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="panel-footer">
+                <form ng-model="car">
+                    <div>
+                    <label>
+                        Model:
+                        <input type="text" name="model" ng-model="car.model" required>
+                    </label>
+                    </div>
+                    <div>
+                        <label>
+                            Color:
+                            <input type="text" name="color" ng-model="car.color" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Release year:
+                            <input type="text" name="releaseYear" ng-model="car.creationDate" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Conditioner:
+                            <input type="text" name="conditioner" ng-model="car.conditioner" required>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Release country:
+                            <input type="text" name="country" ng-model="car.country" required>
+                        </label>
+                    </div>
+                    {{car}}
+                    <button class="btn btn-default" type="submit" ng-click="addCar(car)">Add car</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
